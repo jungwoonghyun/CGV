@@ -90,4 +90,33 @@ public class MemberView {
 			}
 		}
 	}
+
+    /**
+	 * 서브메뉴에서 마이페이지 선택 시 보여지는 메뉴 
+	 * (1. 콘텐츠 메뉴 | 2. 마이 페이지 | 0. 로그아웃) -> 마이 페이지 메뉴 선택바
+	 */
+	public boolean myPageMenu() {
+		boolean isMemDeleted = false;
+		String choice;
+		String myPageMenu = "\n= = = = = = = 마이 페이지 = = = = = = = =\n"
+						  + "\t1. 회원 정보 확인\n"
+						  + "\t2. 회원 정보 수정\n"
+						  + "\t3. 회원 탈퇴\n"
+						  + "\t0. 뒤로가기\n"
+						  + "\n\t> 원하시는 번호를 입력해 주세요 : ";
+		exit: 
+		while (true) {
+			System.out.print(myPageMenu);
+			choice = sc.nextLine();
+
+			switch (choice) {
+			case "1": viewUser(); break;
+			case "2": updateUser(); break;
+			case "3": isMemDeleted = deleteUser(); break exit;
+			case "0": break exit;	
+			default: System.out.println("\n [잘못 입력하셨습니다. 이전 메뉴로 돌아갑니다.]");
+			}
+		}
+		return isMemDeleted;
+	}
 }
