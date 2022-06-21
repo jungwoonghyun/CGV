@@ -53,5 +53,26 @@ public class Movie {
 		}
 	}
 
+    public void show_choosed_seat(char row_out,int column_out) {
+		String[][] seat;
+		seat = new String[this.row][this.column];
+		
+		seat[(int) row_out-65][column_out-1] = "ON";
+		System.out.println("This is your seat");
+		for(int i=0;i<this.row;i++) {
+			char row = (char)('A'+i);
+			System.out.print(row+" ");
+			for(int j=0;j<this.column;j++) {
+				if(seat[i][j] == "ON") {
+					System.out.print("*");//⬛
+				}else {
+					System.out.print("o");//⬜️
+				}
+			}
+			System.out.println(" ");
+		}
+	}
+
+
     
 }
