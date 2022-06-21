@@ -124,6 +124,20 @@ public class Movie {
 		return dc_age;	
 	}
 
-    
+    public float buyDC(int buyway) {
+		
+		float dc_way = 0;
+		
+		if(buyway == 1) {
+			dc_way = (float) 0;}
+		else if(buyway == 2) {
+			dc_way = (float) 0.2;}
+		else if(buyway == 3) {
+			dc_way = (float) 0.15;}
+		else {
+			dc_way=0;}
+		
+		return dc_way;
+	}
 
 }
