@@ -1,4 +1,4 @@
-package vo.member;
+package manager;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
+import java.util.Set;
 
 import vo.member.Member;
 
@@ -71,4 +72,19 @@ public class memberManager {
 		}
 		return isIdExist;
 	}
+
+    /**
+	 * 모든 멤버 정보 확인 메소드
+	 */
+	public void viewAllUser() {
+		Set<String> keySet = memberMap.keySet();
+		
+		// memberMap에 멤버 객체가 잘 저장되고 있는지 확인용
+		for(String id : keySet) {
+			Member value = memberMap.get(id);
+			System.out.println("***" + id + " = " + value); 
+		}
+	}
+
+	
 }
