@@ -73,6 +73,21 @@ public class Movie {
 		}
 	}
 
-
+    public float cost(char row_out) {//fixed
+	
+		int choice_seat = (int) row_out; //fixed part
+	if(choice_seat-65<=1) {
+		price = costs[0];
+	}
+	else if(choice_seat-65<=3) {
+		price = costs[1];
+	}
+	else if(choice_seat-65<=5) {
+		price = costs[2];
+	}
+	else System.out.println("fail");
+	return price;
+	}
+    
     
 }
