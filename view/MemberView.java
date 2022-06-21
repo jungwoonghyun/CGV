@@ -246,4 +246,36 @@ public class MemberView {
 			}	
 		}
 	}
+
+    /**
+	 * 3. 회원 탈퇴 메소드
+	 */
+	public boolean deleteUser() {
+		boolean isDeleted = false;
+		while(true) {		
+			System.out.print("\n= = = = = = = = 회원 탈퇴 = = = = = = = =\n");
+			System.out.print(" → 탈퇴를 원하시면, 비밀번호를 입력해주세요.\n");
+			System.out.print("\n\t> PassWord : ");
+			String inputPw = sc.nextLine();
+			
+			if((loginMember.getUserPW()).equals(inputPw)) {
+				System.out.print("\n❗❗탈퇴 시 모든 데이터가 삭제되며, 복구 불가능합니다.❗❗\n\n\t> 정말 탈퇴하시겠습니까? (y/n)? ");
+				if(sc.nextLine().toLowerCase().charAt(0) == 'y') {
+					mManager.deleteUser(loginMember.getUserID());
+					System.out.println();
+					System.out.println("\t[정상적으로 탈퇴되었습니다.]\n"
+									  +" [그동안 CGV와 함께 해주셔서 감사합니다.]\n");
+					return !isDeleted; // true 리턴
+				}
+				else {
+					System.out.println("\n\t[로그인한 화면으로 돌아갑니다.]"
+							+ "\n     [CGV와 함께 즐거운 영화 관람 되세요.]");
+					break;
+				}
+			}
+			else
+				System.out.println("\n  [비밀번호가 틀렸습니다. 다시 입력해주세요.]");
+		}
+		return isDeleted; // false 리턴
+	}
 }
