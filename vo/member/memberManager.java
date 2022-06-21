@@ -56,5 +56,19 @@ public class memberManager {
     return memberMap.get(Id); // 맵에 없는 키로 호출시 null리턴
     }
 
-    
+    /**
+	 * 멤버 정보 추가 메소드
+	 */
+	public boolean insertMember(Member mem) {
+		boolean isIdExist = true; // 입력받은 멤버객체 id값이 이미 존재하는 경우 false
+		if(!memberMap.containsKey(mem.getUserID())) {
+			memberMap.put(mem.getUserID(), mem);
+			writeAllMembers();
+		}else {
+			System.out.println("\n\t[이미 존재하는 Id입니다.]\n\t[메인 메뉴로 돌아갑니다.]\n");
+			isIdExist = false;
+			return isIdExist;
+		}
+		return isIdExist;
+	}
 }
