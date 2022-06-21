@@ -60,7 +60,7 @@ public class MemberView {
 		}
 	}
 	
-	/**
+    /**
 	 * 로그인 성공 시 보여지는 서브메뉴 선택바
 	 * (1. 영화 예매하기 | 2. 마이 페이지 | 0. 로그아웃)
 	 */
@@ -76,12 +76,12 @@ public class MemberView {
 		
 			switch(choice) {
 			case "1" : mv = new MovieMain(); 	// 로그인한 멤버 객체를 매개인자로 받는 생성자 사용
-					  mv1 = new Movie();
+					  mv1 = new Movie();    //MovieMain() & Movie()은 main branch와 합병 후 가져올 예정
 					  mv.main(null);
 					
 			break;
 			case "2" : 
-				if(myPageMenu()) {
+				if(myPageMenu()) { //myPageMenu() 아래에 만들 예정
 					return;
 				}
 				break;
