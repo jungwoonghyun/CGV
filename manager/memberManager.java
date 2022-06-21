@@ -104,5 +104,11 @@ public class memberManager {
 		writeAllMembers();
 	}
 
-
+	/**
+	 * 멤버 탈퇴 메소드
+	 */
+	public void deleteUser(String id) {
+		memberMap.remove(id);
+		writeAllMembers();
+	}
 }
