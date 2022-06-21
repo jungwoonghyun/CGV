@@ -73,9 +73,9 @@ public class Movie {
 		}
 	}
 
-    public float cost(char row_out) {//fixed
+    public float cost(char row_out) {
 	
-		int choice_seat = (int) row_out; //fixed part
+		int choice_seat = (int) row_out; 
 	if(choice_seat-65<=1) {
 		price = costs[0];
 	}
@@ -89,5 +89,14 @@ public class Movie {
 	return price;
 	}
     
+    public void show_buyway() {
+		System.out.println("Choose your buyway");
+		for(int i=0;i<buyway.length;i++) {
+			System.out.print(i+1);
+			System.out.println(". "+buyway[i]);
+		}
+		System.out.println("-----------------------------");
+	}
+
     
 }
