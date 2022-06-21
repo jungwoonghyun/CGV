@@ -13,7 +13,7 @@ import java.util.Set;
 
 import vo.member.Member;
 
-public class memberManager {
+public class MemberManager {
     private HashMap<String, Member> memberMap = new HashMap<>();
 	private File memberSrc = new File("data/member/userList.ser");
 	
