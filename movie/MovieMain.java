@@ -33,13 +33,15 @@ public class MovieMain {
 		int column_out = scanner.nextInt();
 		
 		movie.show_choosed_seat(row_out, column_out);
-		
-		
-		//price = movie.cost(row_out); //행의 위치에 따라 가격 차등 적용
-		
 
-		// 나이에 따른 할인률 계산 함수 필요
+		// 나이에 따른 할인률 계산을 위해 임시로 나이를 외부에서 입력받게함
+		// 목표는 회원가입 정보의 나이를 기반으로 나이 설정
 
+		System.out.println("Input your age");
+		System.out.println("-------------------");
+		
+		age = scanner.nextInt();//나이
+		
 
 		//-------------할인 방법에 따른 할인률---------------------
 
@@ -47,8 +49,20 @@ public class MovieMain {
 		
 		int choice_way = scanner.nextInt();
 
+		dc = movie.buyDC(choice_way)+movie.AgeDC(age);
 		
+		price = movie.cost(row_out); //행의 위치에 따라 가격 차등 적용
+
+		int totalprice =  (int) (price*(1-dc));
+		
+		
+		System.out.print("\n= = = = = = = = CGV = = = = = = = =\n"
+				   + "영화명\t 금액\t  나이\t 할인된 금액\n\n"  
+				   +  title+"\t"+price+"\t   "+age+"\t   " +totalprice+"\n" 
+		           +"\n예약이 완료되었습니다. 즐거운 영화관람 되세요.");
+		
+		}
     }
 
 
-}
+
