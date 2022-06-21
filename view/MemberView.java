@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 import manager.MemberManager;
 import vo.member.Member;
+import movie.Movie;
+import movie.MovieMain;
 
 public class MemberView {
     
@@ -12,6 +14,8 @@ public class MemberView {
 	private MemberManager mManager = new MemberManager();
 	 // 선언만 해두고 로그인 시 멤버 객체 할당
 	private Scanner sc = new Scanner(System.in);
+    private MovieMain mv;
+    private Movie mv1;
 
     /**
 	 * 프로그램 실행 시 나타나는 첫 화면
