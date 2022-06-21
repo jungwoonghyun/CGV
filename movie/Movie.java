@@ -18,5 +18,26 @@ public class Movie {
             }
     }
 
-    
+    public String movie_choice(int movie_num) {
+        boolean i =true;
+        while(i){
+        if(movie_num==1) {
+            return film[0]; 
+        }
+        else if(movie_num==2) {
+            return film[1];
+        }
+        else if(movie_num==3) {
+            return film[2];
+        }
+        else {
+        return "wrong movie number choose again";
+        }
+        }
+        return "\n";
+    }
+
+    //---------------movie 
+
+
 }
