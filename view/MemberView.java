@@ -119,4 +119,28 @@ public class MemberView {
 		}
 		return isMemDeleted;
 	}
+
+    /**
+	 * 로그인 메소드
+	 */
+	public void login() {
+		System.out.println("\n= = = = = = = = 로그인 = = = = = = = = =");
+		System.out.print("\t> ID : ");
+		String id = sc.nextLine();
+		System.out.print("\t> PassWord : ");
+		String pw = sc.nextLine();
+		
+		loginMember = mManager.loginInfo(id);
+		
+		if(loginMember != null) { // 로그인한 회원정보가 파일에 존재한다면 실행
+			if(pw.equals(loginMember.getUserPW())){ // 로그인한 회원정보와 입력 pw가 같은지 확인하고 다음메뉴로 넘어감
+				subMenu();
+			}else {
+				System.out.println("\n  [비밀번호가 틀렸습니다. 다시 입력해주세요.]\n");
+			}
+		} else { // 로그인한 회원정보가 파일에 존재하지 않을 경우
+			System.out.println("\n  [계정 정보가 없습니다. 메인메뉴로 돌아갑니다.]\n");
+			return;
+		}
+	}
 }
