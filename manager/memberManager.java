@@ -86,5 +86,15 @@ public class memberManager {
 		}
 	}
 
+	/**
+	 * 멤버 정보 확인 메소드
+	 */
+	public Member viewUser(String id) {
+		return memberMap.get(id);
+		
+	}
+
+
+
 	
 }
