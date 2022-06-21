@@ -47,5 +47,14 @@ public class memberManager {
 			
 	}
 
+    /**
+	 * mainMenu에서 로그인한 멤버가 누구인지 받아서 subMenu에서 사용하기 위한 메소드
+	 */
+	public Member loginInfo(String Id) {
+        readAllMembers();
+    
+    return memberMap.get(Id); // 맵에 없는 키로 호출시 null리턴
+    }
 
+    
 }
