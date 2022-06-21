@@ -143,4 +143,44 @@ public class MemberView {
 			return;
 		}
 	}
+
+    /**
+	 * 회원가입 메소드
+	 */
+	public boolean signIn() {
+		// 회원가입 취소시 mainMenu에서 fall-through가 일어나지 않도록 signIn메소드에 리턴타입을 설정
+		boolean signInCheck = false; 
+		Member mem = new Member();
+		System.out.print("\n= = = = = = = = 계정 생성 = = = = = = = =\n");
+		System.out.print("\t> ID : ");
+		mem.setUserID(sc.nextLine());
+		System.out.print("\t> PassWord : ");
+		mem.setUserPW(sc.nextLine());
+		System.out.print("\t> 이름 : ");
+		mem.setUserName(sc.nextLine());
+		System.out.print("\t> 생년월일(6자리) ex.990909 : ");
+		mem.setUserBirth(sc.nextLine());
+		System.out.print("\t> 핸드폰번호(-제외) : ");
+		mem.setUserPhone(sc.nextLine());
+		
+		System.out.print("\n= = = = = = = = = = = = = = = = = = = =\n");
+		System.out.print("\t1. 완료 | 2. 취소\n\n"
+					   + "\t> 번호 입력 : ");
+		String choice = sc.nextLine();
+		
+		switch(choice) {
+		case "1" : boolean isExist = mManager.insertMember(mem);// 회원정보 추가 + 입력받은 멤버객체 id값이 이미 존재하는 경우 false 리턴
+					if(!isExist) { // 이미 존재하는 id일 경우 아래 출력문 없이 탈출
+						return signInCheck; // false 리턴
+					}
+				   System.out.println("\n\t[✨가입을 축하드립니다!✨]");
+				   signInCheck = true;
+				   break;
+				   
+		case "2" : System.out.println();
+				   break;
+		}
+		return signInCheck; // boolean값 리턴
+	}
+    
 }
