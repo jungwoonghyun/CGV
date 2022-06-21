@@ -1,11 +1,13 @@
 package vo.member;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
 import vo.member.Member;
@@ -30,5 +32,20 @@ public class memberManager {
 		}
 	}
 
-    
+    /**
+	 * 멤버 전체 정보 외부파일로 출력하는 메소드
+	 */
+	public void writeAllMembers() {
+		try (
+				ObjectOutputStream oos = 
+				new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(memberSrc)));
+		){
+			oos.writeObject(memberMap);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+			
+	}
+
+
 }
