@@ -98,5 +98,16 @@ public class Movie {
 		System.out.println("-----------------------------");
 	}
 
-    
+    public String choose_buyway(int choice_way) {
+        if(choice_way == 1) {
+            return buyway[0]; 
+        }
+        else if(choice_way == 2) {
+            return buyway[1]; 
+        }
+        else if(choice_way == 3) {
+            return buyway[2]; 
+        }
+        else return "You choose wrong number";
+        }
 }
