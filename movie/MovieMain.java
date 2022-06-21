@@ -1,8 +1,11 @@
 package movie;
 import java.util.Scanner;
 
+import vo.member.Member;
+
 public class MovieMain {
     
+	private Member a;
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -36,11 +39,10 @@ public class MovieMain {
 
 		// 나이에 따른 할인률 계산을 위해 임시로 나이를 외부에서 입력받게함
 		// 목표는 회원가입 정보의 나이를 기반으로 나이 설정
-
-		System.out.println("Input your age");
-		System.out.println("-------------------");
 		
-		age = scanner.nextInt();//나이
+		Member a = new Member();
+
+		age= Integer.parseInt(a.getUserBirth());//나이
 		
 
 		//-------------할인 방법에 따른 할인률---------------------
