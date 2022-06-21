@@ -109,5 +109,21 @@ public class Movie {
             return buyway[2]; 
         }
         else return "You choose wrong number";
-        }
+    }
+
+    public float AgeDC(int age) {
+		
+		float dc_age = 0;
+
+		if(age <20) {
+			dc_age = (float) 0.25;}
+		else if(age>=20 && age<30) {
+			dc_age = (float) 0.2;}
+		else if(age>=30) {
+			dc_age = (float) 0.15;}
+		return dc_age;	
+	}
+
+    
+
 }

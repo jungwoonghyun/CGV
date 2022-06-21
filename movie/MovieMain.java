@@ -43,6 +43,10 @@ public class MovieMain {
 
 		//-------------할인 방법에 따른 할인률---------------------
 
+		movie.show_buyway();// 할인방법 표시
+		
+		int choice_way = scanner.nextInt();
+
 		
     }
 
