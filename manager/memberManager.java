@@ -94,7 +94,15 @@ public class memberManager {
 		
 	}
 
+	/**
+	 * 멤버 정보 수정 메소드
+	 */
+	public void updateUser(Member oldUser, Member newUser) {
+		String id = oldUser.getUserID(); // key(id) 조회
+		
+		memberMap.replace(id, newUser);
+		writeAllMembers();
+	}
 
 
-	
 }
