@@ -9,6 +9,8 @@ public class Movie {
     float dc=0;
 	String buyway[]= {"현장","인터넷","쿠폰"};
 
+    //------------movie choose---------------
+
     public void moviename() {
         System.out.println("Choose number of movie");
         System.out.println("-----------------");
@@ -37,7 +39,19 @@ public class Movie {
         return "\n";
     }
 
-    //---------------movie 
+    //---------------movie seat------------------
 
+    public void showseat() {
+		System.out.println("choose your seat");
+		for(int i=0;i<this.row;i++) {
+			char row = (char)('A'+i);
+			System.out.print(row+" ");
+			for(int j=0;j<this.column;j++) {
+				System.out.print("o");//⬜ special square
+			}
+			System.out.println(" ");
+		}
+	}
 
+    
 }
