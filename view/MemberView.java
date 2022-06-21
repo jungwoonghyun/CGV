@@ -183,4 +183,67 @@ public class MemberView {
 		return signInCheck; // boolean값 리턴
 	}
     
+    /**
+	 * 1. 회원 정보 확인 메소드
+	 */
+	public void viewUser() { 
+        //		System.out.println("*****외부파일에 잘 저장되고 있는지 확인용*****");
+        //		mManager.viewAllUser();
+                
+                System.out.printf("\n= = = = = = %s님의 회원 정보 = = = = = = =\n", loginMember.getUserName());
+                System.out.println("\t> 아이디 : " + loginMember.getUserID());
+                System.out.println("\t> 이름 : " + loginMember.getUserName());
+                System.out.println("\t> 생년월일 : " + loginMember.getUserBirth());
+                System.out.println("\t> 핸드폰번호 : " + loginMember.getUserPhone());
+                
+    }
+
+    /**
+	 * 2. 회원 정보 수정 메소드
+	 */
+	public void updateUser() {
+		while(true) {
+			System.out.print("\n= = = = = = = 회원 정보 수정 = = = = = = =\n");
+			System.out.println(" → 수정을 원하시면, 기존 비밀번호를 입력해주세요.");
+			System.out.print("\n\t> PassWord : ");
+			String inputPw = sc.nextLine();
+			
+			// 로그인된 회원의 비번과 다시 입력한 비번이 같으면 정보 수정
+			if((loginMember.getUserPW()).equals(inputPw)) {
+				System.out.print("\n= = = = = = = = = = = = = = = = = = =\n");
+				Member oldUser = mManager.viewUser(loginMember.getUserID());
+				Member newUser = new Member(loginMember.getUserID(), loginMember.getUserPW(), loginMember.getUserName(),
+			              loginMember.getUserBirth(), loginMember.getUserPhone());
+				
+				System.out.printf("\t    <기존 회원 정보>\n\n"
+								+ "  아이디[%s]   비밀번호[%s]   이름[%s]"
+								+ "\n  생년월일[%s]   폰번호[%s]   "
+					
+								,oldUser.getUserID(), oldUser.getUserPW(), oldUser.getUserName(), oldUser.getUserBirth(),
+								oldUser.getUserPhone());
+				
+				System.out.println("\t<변경할 회원 정보 입력>");
+				System.out.print("\n\t> 새로운 비밀번호 입력: ");
+				newUser.setUserPW(sc.nextLine());
+				System.out.print("\t> 새로운 핸드폰번호 입력: ");
+				newUser.setUserPhone(sc.nextLine());
+				
+				mManager.updateUser(oldUser, newUser);
+				System.out.println();
+				System.out.print("\n  [다음과 같이 정보 수정이 완료되었습니다.]\n");
+				System.out.print("\n= = = = = = = = = = = = = = = = = = =\n");
+				System.out.printf("\n  아이디[%s]   비밀번호[%s]   이름[%s]"
+								+ "\n  생년월일[%s]   폰번호[%s]   "
+								,oldUser.getUserID(), newUser.getUserPW(), oldUser.getUserName(), oldUser.getUserBirth(),
+								newUser.getUserPhone());
+			
+				loginMember = newUser;
+				System.out.println("\t[마이 페이지로 돌아갑니다.]");
+				return;
+			}
+			else {
+				System.out.println("\n  [비밀번호가 틀렸습니다. 다시 입력해주세요.]");
+			}	
+		}
+	}
 }
