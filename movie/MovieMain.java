@@ -5,13 +5,12 @@ import vo.member.Member;
 
 public class MovieMain {
     
-	private Member a;
+	
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         String title;
 		float price;
-		int age;
 		float dc;
 		
 		Movie movie = new Movie();
@@ -40,9 +39,9 @@ public class MovieMain {
 		// 나이에 따른 할인률 계산을 위해 임시로 나이를 외부에서 입력받게함
 		// 목표는 회원가입 정보의 나이를 기반으로 나이 설정
 		
-		Member a = new Member();
+		
 
-		age= Integer.parseInt(a.getUserBirth());//나이
+		
 		
 
 		//-------------할인 방법에 따른 할인률---------------------
@@ -50,6 +49,10 @@ public class MovieMain {
 		movie.show_buyway();// 할인방법 표시
 		
 		int choice_way = scanner.nextInt();
+
+		System.out.println("나이를 입력하시오");
+
+		int age = scanner.nextInt();
 
 		dc = movie.buyDC(choice_way)+movie.AgeDC(age);
 		
